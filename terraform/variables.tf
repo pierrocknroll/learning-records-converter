@@ -1,0 +1,104 @@
+# Platform selection
+variable "deploy_to_aws" {
+  description = "Deploy to AWS App Runner"
+  type        = bool
+  default     = false
+}
+
+variable "deploy_to_scaleway" {
+  description = "Deploy to Scaleway Container"
+  type        = bool
+  default     = false
+}
+
+# Scaleway configuration
+variable "scaleway_access_key" {
+  description = "Scaleway access key"
+  type        = string
+  sensitive   = true
+}
+
+variable "scaleway_secret_key" {
+  description = "Scaleway secret key"
+  type        = string
+  sensitive   = true
+}
+
+variable "scaleway_project_id" {
+  description = "Scaleway project ID"
+  type        = string
+}
+
+variable "scaleway_region" {
+  description = "Scaleway region"
+  type        = string
+  default     = "fr-par"
+}
+
+variable "scaleway_zone" {
+  description = "Scaleway zone"
+  type        = string
+  default     = "fr-par-1"
+}
+
+# AWS configuration
+variable "aws_region" {
+  description = "AWS region"
+  type        = string
+  default     = "eu-west-1"
+}
+
+variable "aws_access_key" {
+  description = "AWS access key"
+  type        = string
+  sensitive   = true
+}
+
+variable "aws_secret_key" {
+  description = "AWS secret key"
+  type        = string
+  sensitive   = true
+}
+
+# Application configuration
+variable "app_name" {
+  description = "Application name"
+  type        = string
+  default     = "lrc"
+}
+
+variable "environment" {
+  description = "Environment (development/production)"
+  type        = string
+  default     = "production"
+}
+
+variable "docker_image" {
+  description = "Docker image to deploy (ex: ghcr.io/username/lrc:latest)"
+  type        = string
+}
+
+# Container configuration
+variable "port" {
+  description = "Container port"
+  type        = number
+  default     = 8000
+}
+
+variable "memory_limit" {
+  description = "Memory limit in MB"
+  type        = number
+  default     = 1024
+}
+
+variable "cpu_limit" {
+  description = "CPU limit in mCPU (Scaleway only)"
+  type        = number
+  default     = 500
+}
+
+variable "timeout" {
+  description = "Request timeout in seconds"
+  type        = number
+  default     = 30
+}
