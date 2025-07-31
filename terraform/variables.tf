@@ -12,18 +12,6 @@ variable "deploy_to_scaleway" {
 }
 
 # Scaleway configuration
-variable "scaleway_access_key" {
-  description = "Scaleway access key"
-  type        = string
-  sensitive   = true
-}
-
-variable "scaleway_secret_key" {
-  description = "Scaleway secret key"
-  type        = string
-  sensitive   = true
-}
-
 variable "scaleway_project_id" {
   description = "Scaleway project ID"
   type        = string
@@ -46,18 +34,6 @@ variable "aws_region" {
   description = "AWS region"
   type        = string
   default     = "eu-west-1"
-}
-
-variable "aws_access_key" {
-  description = "AWS access key"
-  type        = string
-  sensitive   = true
-}
-
-variable "aws_secret_key" {
-  description = "AWS secret key"
-  type        = string
-  sensitive   = true
 }
 
 # Application configuration
