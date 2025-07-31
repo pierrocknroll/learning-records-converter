@@ -152,3 +152,4 @@ node_modules
 # Project files
 data/dases_profiles
 letsencrypt/
+terraform/terraform.tfvars

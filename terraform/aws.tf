@@ -1,25 +1,14 @@
 resource "aws_apprunner_service" "lrc" {
   count = var.deploy_to_aws ? 1 : 0
 
-  service_name = "${var.app_name}-${var.environment}"
+  service_name = local.service_name
 
   source_configuration {
     image_repository {
       image_configuration {
         port = tostring(var.port)
 
-        runtime_environment_variables = {
-          ENVIRONMENT                = var.environment
-          LOG_LEVEL                 = var.log_level
-          APP_INTERNAL_HOST         = "0.0.0.0"
-          APP_INTERNAL_PORT         = tostring(var.port)
-#           DOWNLOAD_TIMEOUT          = var.download_timeout
-#           CORS_ALLOWED_ORIGINS      = var.cors_allowed_origins
-#           PROFILES_NAMES            = var.profiles_names
-#           PROFILE_LMS_URL           = "https://raw.githubusercontent.com/gaia-x-dases/xapi-lms/master/profile/profile.jsonld"
-#           PROFILE_FORUM_URL         = "https://raw.githubusercontent.com/gaia-x-dases/xapi-forum/master/profile/base.jsonld"
-#           PROFILE_ASSESSMENT_URL    = "https://raw.githubusercontent.com/gaia-x-dases/xapi-assessment/add-mandatory-statements/profile/profile.jsonld"
-        }
+        runtime_environment_variables = local.base_env_vars
 
         start_command = "gunicorn --config gunicorn.conf.py app.main:app"
       }
@@ -46,7 +35,7 @@ resource "aws_apprunner_service" "lrc" {
   }
 
   tags = {
-    Name        = "${var.app_name}-${var.environment}"
+    Name        = local.service_name
     Environment = var.environment
     ManagedBy   = "Terraform"
   }

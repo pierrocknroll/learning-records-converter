@@ -78,3 +78,9 @@ variable "timeout" {
   type        = number
   default     = 30
 }
+
+variable "log_level" {
+  description = "Log level"
+  type        = string
+  default     = "info"
+}
