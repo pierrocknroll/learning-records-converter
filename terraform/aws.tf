@@ -9,8 +9,6 @@ resource "aws_apprunner_service" "lrc" {
         port = tostring(var.port)
 
         runtime_environment_variables = local.base_env_vars
-
-        start_command = "gunicorn --config gunicorn.conf.py app.main:app"
       }
 
       image_identifier      = var.docker_image
@@ -21,8 +19,8 @@ resource "aws_apprunner_service" "lrc" {
   }
 
   instance_configuration {
-    cpu    = "0.5 vCPU"
-    memory = "1 GB"
+    cpu    = "${var.cpu_limit / 1000} vCPU"
+    memory = "${var.memory_limit / 1024} GB"
   }
 
   health_check_configuration {

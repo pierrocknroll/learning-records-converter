@@ -63,6 +63,8 @@ terraform/
 
 ### Alternative: Direct Terraform
 
+In the directory `terraform`:
+
 ```bash
 terraform init
 terraform plan
@@ -97,10 +99,10 @@ terraform output
 ```
 
 ```
-aws_url = "https://xxxxx.eu-west-1.awsapprunner.com"
+aws_url = "https://xxxxx.eu-west-3.awsapprunner.com"
 scaleway_url = "https://xxxxx-lrc-production.functions.fnc.fr-par.scw.cloud"
 summary = {
-  "aws" = "https://xxxxx.eu-west-1.awsapprunner.com"
+  "aws" = "https://xxxxx.eu-west-3.awsapprunner.com"
   "environment" = "production"
   "scaleway" = "https://xxxxx-lrc-production.functions.fnc.fr-par.scw.cloud"
 }

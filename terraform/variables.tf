@@ -12,11 +12,6 @@ variable "deploy_to_scaleway" {
 }
 
 # Scaleway configuration
-variable "scaleway_project_id" {
-  description = "Scaleway project ID"
-  type        = string
-}
-
 variable "scaleway_region" {
   description = "Scaleway region"
   type        = string
@@ -26,14 +21,14 @@ variable "scaleway_region" {
 variable "scaleway_zone" {
   description = "Scaleway zone"
   type        = string
-  default     = "fr-par-1"
+  default     = "fr-par-2"
 }
 
 # AWS configuration
 variable "aws_region" {
   description = "AWS region"
   type        = string
-  default     = "eu-west-1"
+  default     = "eu-west-3"
 }
 
 # Application configuration
@@ -68,7 +63,7 @@ variable "memory_limit" {
 }
 
 variable "cpu_limit" {
-  description = "CPU limit in mCPU (Scaleway only)"
+  description = "CPU limit (mCPU for Scaleway, vCPU for AWS)"
   type        = number
   default     = 500
 }

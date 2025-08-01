@@ -19,6 +19,8 @@ resource "scaleway_container" "lrc" {
   cpu_limit    = var.cpu_limit
   timeout      = var.timeout
 
+  environment_variables = local.base_env_vars
+
   min_scale = 0
   max_scale = 10
 
