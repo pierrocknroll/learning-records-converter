@@ -38,3 +38,10 @@ resource "aws_apprunner_service" "lrc" {
     ManagedBy   = "Terraform"
   }
 }
+
+resource "aws_apprunner_auto_scaling_configuration_version" "lrc_scaling" {
+  auto_scaling_configuration_name = "${local.service_name}-scaling"
+
+  min_size        = var.min_instances
+  max_size        = var.max_instances
+}

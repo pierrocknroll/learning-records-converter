@@ -54,6 +54,7 @@ chmod +x ./deploy.sh
 terraform/
 ├── providers.tf          # Providers configuration
 ├── variables.tf          # Configuration variables
+├── locals.tf             # Environment variables overriding
 ├── aws.tf                # AWS App Runner resources
 ├── scaleway.tf           # Scaleway Container resources
 ├── outputs.tf            # Output URLs
@@ -73,14 +74,17 @@ terraform apply
 
 ## 🔧 Main Variables
 
-| Variable             | Description            | Default      |
-|----------------------|------------------------|--------------|
-| `deploy_to_aws`      | Deploy to AWS          | `false`      |
-| `deploy_to_scaleway` | Deploy to Scaleway     | `false`      |
-| `docker_image`       | Docker image to deploy | *required*   |
-| `environment`        | Environment name       | `production` |
-| `memory_limit`       | Memory limit (MB)      | `1024`       |
-| `log_level`          | LRC log level          | `info`       |
+| Variable             | Description                 | Default      |
+|----------------------|-----------------------------|--------------|
+| `deploy_to_aws`      | Deploy to AWS               | `false`      |
+| `deploy_to_scaleway` | Deploy to Scaleway          | `false`      |
+| `docker_image`       | Docker image to deploy      | *required*   |
+| `environment`        | Environment name            | `production` |
+| `memory_limit`       | Memory limit (MB)           | `1024`       |
+| `cpu_limit`          | CPU limit                   | `250`        |
+| `min_instances`      | Minimal number of instances | `1`          |
+| `max_instances`      | Maximal number of instances | `3`          |
+| `log_level`          | LRC log level               | `info`       |
 
 ## 📋 Prerequisites
 

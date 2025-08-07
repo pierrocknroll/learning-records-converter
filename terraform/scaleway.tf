@@ -21,8 +21,8 @@ resource "scaleway_container" "lrc" {
 
   environment_variables = local.base_env_vars
 
-  min_scale = 0
-  max_scale = 10
+  min_scale = var.min_instances
+  max_scale = var.max_instances
 
   privacy = "public"
   deploy  = true

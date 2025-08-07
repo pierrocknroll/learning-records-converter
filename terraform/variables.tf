@@ -59,23 +59,35 @@ variable "port" {
 variable "memory_limit" {
   description = "Memory limit in MB"
   type        = number
-  default     = 1024
+  default     = 512
 }
 
 variable "cpu_limit" {
   description = "CPU limit (mCPU for Scaleway, vCPU for AWS)"
   type        = number
-  default     = 500
+  default     = 250
 }
 
 variable "timeout" {
   description = "Request timeout in seconds"
   type        = number
-  default     = 30
+  default     = 90
 }
 
 variable "log_level" {
   description = "Log level"
   type        = string
   default     = "info"
+}
+
+variable "min_instances" {
+  description = "Minimal number of instances"
+  type        = number
+  default     = 1
+}
+
+variable "max_instances" {
+  description = "Maximal number of instances"
+  type        = number
+  default     = 3
 }
