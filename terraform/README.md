@@ -22,6 +22,9 @@ deploy_to_scaleway = false
 docker_image = "ghcr.io/your-org/lrc:latest"
 ```
 
+Note : for deployment on AWS, the image must be pushed publicly to ECR (AWS's
+public Container Registry service).
+
 ### 2. Configure credentials
 
 **Option A: CLI tools (recommended)**
